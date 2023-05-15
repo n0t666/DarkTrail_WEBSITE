@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavDrop } from "./navbarElements";
-import { NavLink,Link } from 'react-router-dom';
-
+import { NavLink, Link } from "react-router-dom";
+import { clsx } from "clsx";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -59,10 +59,13 @@ const Navbar = () => {
           } md:flex md:justify-end md:flex-row`}
         >
           <NavLink
-          to="/about" 
-            className={({ isActive }) => clsx("px-4 py-2 mt-2 text-sm font-semibold  rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
-            isActive ? "text-gray-900" : "bg-gray-200"
-            )}
+            to="/about"
+            className={({ isActive }) =>
+              clsx(
+                "px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
+                isActive ? "bg-gray-200" : "text-gray-900"
+              )
+            }
           >
             Blog
           </NavLink>
