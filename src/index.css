@@ -3,3 +3,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face{
+    font-family: 'FIPPS';
+    src: url(./fonts/Fipps-Regular.otf);
+}
+
+@font-face{
+    font-family: 'PIXEL';
+    src: url(./fonts/PixelFraktur.ttf);
+}
+
+@font-face{
+    font-family: 'TIGHT';
+    src: url(./fonts/tight_pixel.ttf);
+}
