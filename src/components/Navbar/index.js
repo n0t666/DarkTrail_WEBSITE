@@ -3,6 +3,8 @@ import { NavDrop } from "./navbarElements";
 import { NavLink, Link } from "react-router-dom";
 import { clsx } from "clsx";
 import Switcher from "./Switcher";
+import { Tooltip } from 'react-tooltip'
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -153,8 +155,11 @@ const Navbar = () => {
           {isMobileScreen && <Switcher/>} 
           </div>
            )}
-          {!isMobileScreen && <Switcher />}
+           <div className="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 ml-0 flex items-center" data-tooltip-id="dark-tooltip" data-tooltip-content="Ligar/Desligar modo escuro">
+          {!isMobileScreen && <Switcher/>}
+          </div>
         </nav>
+        <Tooltip id="dark-tooltip" place="bottom" />
       </div>
     </div>
   );
