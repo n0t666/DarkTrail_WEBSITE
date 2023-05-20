@@ -11,7 +11,6 @@ function ContactForm() {
 
   // Success message
   if (state.submitted) {
-     const toastText = "Mensagem enviada com sucesso!.";
       const toast = (
         <Toast text="Mensagem enviada com sucesso!." icon={<HiCheck />}  color="lime"/>
       );
