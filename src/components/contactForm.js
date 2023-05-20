@@ -1,5 +1,8 @@
 import React from "react";
 import { useForm } from "@formcarry/react";
+import Toast from "./Notifications/ToastNormal";
+import { HiCheck } from "react-icons/hi";
+
 function ContactForm() {
   // Call the "useForm" hook in your function component
   const { state, submit } = useForm({
@@ -8,10 +11,17 @@ function ContactForm() {
 
   // Success message
   if (state.submitted) {
-    return <div>Thank you! We received your submission.</div>;
+     const toastText = "Mensagem enviada com sucesso!.";
+      const toast = (
+        <Toast text="Mensagem enviada com sucesso!." icon={<HiCheck />}  color="lime"/>
+      );
+
+      return toast;
+
   }
 
   return (
+
     <form className="mt-6" onSubmit={submit}>
       <div className="flex-1">
         <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
