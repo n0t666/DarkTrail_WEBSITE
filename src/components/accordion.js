@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+
+/* import react-icons */
 import { BiChevronDown } from "react-icons/bi";
+
+/* import framer-motion */
 import { motion, AnimatePresence } from "framer-motion";
 
 const Accordion = ({ question, answer }) => {
@@ -17,7 +21,6 @@ const Accordion = ({ question, answer }) => {
           className={`text-3xl transition-all duration-500 ${
             show ? "rotate-180" : ""
           }`}
-          style={{ flexShrink: 0 }} // Added flexShrink: 0 to maintain icon size
         ></BiChevronDown>
       </div>
 
@@ -25,9 +28,9 @@ const Accordion = ({ question, answer }) => {
       <AnimatePresence>
         {show && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-clip"
           >

@@ -6,25 +6,24 @@
 
 /* Set the default body color */
 body {
-    @apply bg-white dark:bg-gray-900; /* Replace with your desired default background color classes from Tailwind CSS */
-  }
-  
-
-@font-face{
-    font-family: 'FIPPS';
-    src: url(./fonts/Fipps-Regular.otf);
+  @apply bg-white dark:bg-gray-900; /* Replace with your desired default background color classes from Tailwind CSS */
 }
 
-@font-face{
-    font-family: 'PIXEL';
-    src: url(./fonts/PixelFraktur.ttf);
+@font-face {
+  font-family: "FIPPS";
+  src: url(./fonts/Fipps-Regular.otf);
 }
 
-@font-face{
-    font-family: 'TIGHT';
-    src: url(./fonts/tight_pixel.ttf);
+@font-face {
+  font-family: "PIXEL";
+  src: url(./fonts/PixelFraktur.ttf);
+}
+
+@font-face {
+  font-family: "TIGHT";
+  src: url(./fonts/tight_pixel.ttf);
 }
 
 body {
-    margin-bottom: 80px;
-  }
+  margin-bottom: 80px;
+}
