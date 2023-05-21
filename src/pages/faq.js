@@ -88,10 +88,10 @@ const Faq = () => {
         <div className="flex flex-col justify-center items-center mb-4">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Procurar..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border border-gray-300 rounded-md py-2 px-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-96 border py-2 px-3 mb-4 text-gray-700 placeholder-gray-400 bg-white border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
           />
           <div className="flex justify-center">
           <div className="grid md:grid-cols-2 gap-10">
@@ -100,9 +100,9 @@ const Faq = () => {
               const isCategoryCollapsed = collapsedCategories.includes(categoryId);
 
               return (
-                <div className="flex flex-col mb-10" key={categoryId}>
+                <div className="flex flex-col mb-10 items-center" key={categoryId}>
                   <div
-                    className="flex items-center gap-2 cursor-pointer transition-colors duration-300"
+                    className="flex flex-col items-center gap-2 cursor-pointer transition-colors duration-300"
                     onClick={() => toggleCategory(categoryId)}
                   >
                     <Icon
