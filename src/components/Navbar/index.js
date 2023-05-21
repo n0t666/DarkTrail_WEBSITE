@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { NavDrop } from "./navbarElements";
 import { NavLink, Link } from "react-router-dom";
 import { clsx } from "clsx";
+
+
 import Switcher from "./Switcher";
 import { Tooltip } from 'react-tooltip'
+import { NavDrop } from "./navbarElements";
 
+import { FaNewspaper } from 'react-icons/fa';
+import {MdOutlineHome}  from 'react-icons/md';
+import {IoInformationCircleOutline} from 'react-icons/io5';
+import { HiOutlineSparkles } from 'react-icons/hi';
+import {RiGalleryLine} from 'react-icons/ri';
+import {MdVideoLibrary} from 'react-icons/md';
+import {MdOutlineContactSupport} from 'react-icons/md';
+
+const links = [
+  { label: "FAQs", url: "/FAQ" },
+  { label: "Contactos", url: "/contact" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth <= 768);
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth <= 1280);
 
   //Related to the navigation menu itself, this is just used for navigation in mobile devices
   const toggleMenu = () => {
@@ -20,7 +34,7 @@ const Navbar = () => {
     // Update isMobileScreen state on screen size change
     useEffect(() => {
       const handleResize = () => {
-        setIsMobileScreen(window.innerWidth <= 768);
+        setIsMobileScreen(window.innerWidth <= 1280);
       };
       window.addEventListener("resize", handleResize);
       return () => {
@@ -30,15 +44,9 @@ const Navbar = () => {
   
     ////////////////////////////////
 
-  const dropdownLinks = [
-    { label: "Google", url: "https://www.google.com" },
-    { label: "Facebook", url: "https://www.facebook.com" },
-    { label: "Twitter", url: "https://www.twitter.com" },
-  ];
-
   return (
     <div className="w-full text-gray-700 bg-white dark:text-gray-200 dark:bg-gray-800">
-      <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div className="flex flex-col max-w-screen-xl px-4 mx-auto xl:items-center xl:justify-between xl:flex-row xl:px-6 lg:px-8">
         <div className="p-4 flex flex-row items-center justify-between">
           <Link
             to="/"
@@ -46,12 +54,12 @@ const Navbar = () => {
           >
             <span className="z-10 relative transition duration-300 group font-fipps">
               <span className="relative">Dark</span>
-              <span className="absolute top-0 right-0 w-1/2 h-full bg-red-500 transform -skew-x-12 group-hover:skew-x-0 transition-transform duration-300"></span>
+              <span className="mt-1 absolute top-0 right-0 w-1/2 h-full bg-red-500 transform -skew-x-12 group-hover:skew-x-0 transition-transform duration-300"></span>
               <span className="relative text-black">Trail</span>
             </span>
           </Link>
           <button
-            className="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+            className="xl:hidden rounded-lg focus:outline-none focus:shadow-outline"
             onClick={toggleMenu}
           >
             <div className="flex items-center">
@@ -73,14 +81,14 @@ const Navbar = () => {
           </button>
         </div>
         <nav
-          className={`flex-col flex-grow pb-4 md:pb-0 ${
+          className={`flex-col flex-grow pb-4 xl:pb-0 ${
             open ? "flex" : "hidden"
-          } md:flex md:justify-end md:flex-row`}
+          } xl:flex xl:justify-end xl:flex-row`}
         >
           <NavLink
-            to="/about"
+            to="/"
             className={({ isActive }) =>
-              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0", {
+              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0", {
                 "hover:text-gray-900": !isActive,
                 "focus:text-gray-900": !isActive,
                 "hover:bg-gray-200": !isActive,
@@ -92,12 +100,12 @@ const Navbar = () => {
               })
             }
           >
-            Blog
+            <MdOutlineHome className="inline-block mr-2" />Home
           </NavLink>
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0", {
+              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0", {
                 "hover:text-gray-900": !isActive,
                 "focus:text-gray-900": !isActive,
                 "hover:bg-gray-200": !isActive,
@@ -109,12 +117,12 @@ const Navbar = () => {
               })
             }
           >
-            Blog
+            <IoInformationCircleOutline className="inline-block mr-2" />Sobre o jogo
           </NavLink>
           <NavLink
-            to="/about"
+            to="/features"
             className={({ isActive }) =>
-              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0", {
+              clsx("px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0", {
                 "hover:text-gray-900": !isActive,
                 "focus:text-gray-900": !isActive,
                 "hover:bg-gray-200": !isActive,
@@ -126,13 +134,13 @@ const Navbar = () => {
               })
             }
           >
-            Blog
+              <HiOutlineSparkles className="inline-block mr-2" />Funcionalidades
           </NavLink>
           <NavLink
-            to="/about"
+            to="/gallery"
             className={({ isActive }) =>
               clsx(
-                "px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 ml-0",
+                "px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0 ml-0",
                 {
                   "hover:text-gray-900": !isActive,
                   "focus:text-gray-900": !isActive,
@@ -146,11 +154,51 @@ const Navbar = () => {
               )
             }
           >
-            Blog
+             <RiGalleryLine className="inline-block mr-2" />Galeria
           </NavLink>
-          <NavDrop links={dropdownLinks} />
+          <NavLink
+            to="/videos"
+            className={({ isActive }) =>
+              clsx(
+                "px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0 ml-0",
+                {
+                  "hover:text-gray-900": !isActive,
+                  "focus:text-gray-900": !isActive,
+                  "hover:bg-gray-200": !isActive,
+                  "focus:bg-gray-200": !isActive,
+                  "focus:outline-none": !isActive,
+                  "focus:shadow-outline": !isActive,
+                  "bg-gray-200": isActive,
+                  "text-gray-900": isActive,
+                }
+              )
+            }
+          >
+             <MdVideoLibrary className="inline-block mr-2" />Vídeos
+          </NavLink>
+          <NavLink
+            to="/news"
+            className={({ isActive }) =>
+              clsx(
+                "px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0 ml-0",
+                {
+                  "hover:text-gray-900": !isActive,
+                  "focus:text-gray-900": !isActive,
+                  "hover:bg-gray-200": !isActive,
+                  "focus:bg-gray-200": !isActive,
+                  "focus:outline-none": !isActive,
+                  "focus:shadow-outline": !isActive,
+                  "bg-gray-200": isActive,
+                  "text-gray-900": isActive,
+                }
+              )
+            }
+          >
+            <FaNewspaper className="inline-block mr-2" />Notícias
+          </NavLink>
+          <NavDrop links={links} dropdownName={"Ajuda"}/>
           {isMobileScreen&& (
-          <div className="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 ml-0 flex items-center">
+          <div className="px-4 py-2 mt-2 text-sm font-semibold rounded-lg xl:mt-0 ml-0 flex items-center">
           <span className="mr-2">Ativar modo escuro:</span>
           {isMobileScreen && <Switcher/>} 
           </div>
@@ -159,7 +207,9 @@ const Navbar = () => {
           {!isMobileScreen && <Switcher/>}
           </div>
         </nav>
+        {!isMobileScreen&& (
         <Tooltip id="dark-tooltip" place="bottom" />
+        )}
       </div>
     </div>
   );

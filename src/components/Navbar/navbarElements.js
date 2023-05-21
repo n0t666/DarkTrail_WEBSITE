@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { clsx } from "clsx";
 
-export const NavDrop = ({ links }) => {
+export const NavDrop = ({ links, dropdownName }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -28,16 +29,16 @@ export const NavDrop = ({ links }) => {
   }, [dropdownOpen]);
 
   return (
-    <div ref={dropdownRef} className="relative navDrop">
+    <div ref={dropdownRef} className="relative navDrop" style={{ zIndex: dropdownOpen ? 999 : "auto" }}>
       <button
         onClick={toggleDropdown}
         className="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
       >
-        <span>Dropdown</span>
+        <span>{dropdownName}</span>
         <svg
           fill="currentColor"
           viewBox="0 0 20 20"
-          className={`inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform ${
+          className={`inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform  ${
             dropdownOpen ? "rotate-180" : "rotate-0"
           }`}
         >
@@ -52,13 +53,27 @@ export const NavDrop = ({ links }) => {
         <div className="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
           <div className="px-2 py-2 bg-white dark:bg-gray-800 rounded-md shadow">
             {links.map((link, index) => (
-              <Link
+              <NavLink
                 key={index}
-                className="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:focus:text-gray-900  md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                 to={link.url}
+                className={({ isActive }) =>
+                  clsx(
+                    "block px-4 py-2 mt-2 text-sm font-semibold rounded-lg  md:mt-0focus:outline-none focus:shadow-outline",
+                    {
+                      "hover:text-gray-900": !isActive,
+                      "focus:text-gray-900": !isActive,
+                      "hover:bg-gray-200": !isActive,
+                      "focus:bg-gray-200": !isActive,
+                      "focus:outline-none": !isActive,
+                      "focus:shadow-outline": !isActive,
+                      "bg-gray-200": isActive,
+                      "text-gray-900": isActive,
+                    }
+                  )
+                }
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
           </div>
         </div>
