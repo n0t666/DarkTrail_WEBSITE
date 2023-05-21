@@ -24,3 +24,7 @@ body {
     font-family: 'TIGHT';
     src: url(./fonts/tight_pixel.ttf);
 }
+
+body {
+    margin-bottom: 80px;
+  }
