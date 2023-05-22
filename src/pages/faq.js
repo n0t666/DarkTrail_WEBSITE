@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from "react";
-import {Error, Sucess , Warning} from "../components/Alerts/icon_dismiss";
+import {Warning} from "../components/Alerts/icon_dismiss";
 
 import { BiError } from "react-icons/bi";
 import { AiOutlineFileText, AiOutlineInfoCircle } from "react-icons/ai";
