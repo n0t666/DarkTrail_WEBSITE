@@ -1,9 +1,10 @@
 import React, { useState, lazy, Suspense } from "react";
-import {Error, Sucess} from "../components/Alerts/icon_dismiss";
+import {Error, Sucess , Warning} from "../components/Alerts/icon_dismiss";
 
 import { BiError } from "react-icons/bi";
 import { AiOutlineFileText, AiOutlineInfoCircle } from "react-icons/ai";
 import { CgGames } from "react-icons/cg";
+
 
 const LazyAccordion = lazy(() => import("../components/accordion"));
 
@@ -183,8 +184,7 @@ const Faq = () => {
                 })}
               </div>
             </div>
-            <Error Title="Success!" Text="The operation was successful." />
-          
+            <Warning Title="Aviso!" Text="Lembrando que estas são apenas soluções gerais. Caso os problemas persistam, é sempre recomendado entrar em contacto com o suporte do jogo para obter assistência personalizada." />
           </div>
         </div>
       </div>
