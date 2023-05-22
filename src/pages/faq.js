@@ -1,10 +1,13 @@
 import React, { useState, lazy, Suspense } from "react";
+import {Error, Sucess} from "../components/Alerts/icon_dismiss";
 
 import { BiError } from "react-icons/bi";
 import { AiOutlineFileText, AiOutlineInfoCircle } from "react-icons/ai";
 import { CgGames } from "react-icons/cg";
 
 const LazyAccordion = lazy(() => import("../components/accordion"));
+
+
 
 const Faq = () => {
   const categories = [
@@ -180,6 +183,8 @@ const Faq = () => {
                 })}
               </div>
             </div>
+            <Error Title="Success!" Text="The operation was successful." />
+          
           </div>
         </div>
       </div>
