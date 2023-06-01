@@ -13,7 +13,6 @@ import {IoInformationCircleOutline} from 'react-icons/io5';
 import { HiOutlineSparkles } from 'react-icons/hi';
 import {RiGalleryLine} from 'react-icons/ri';
 import {MdVideoLibrary} from 'react-icons/md';
-import {MdOutlineContactSupport} from 'react-icons/md';
 
 const links = [
   { label: "FAQs", url: "/FAQ" },
@@ -52,10 +51,12 @@ const Navbar = () => {
             to="/"
             className="text-lg font-semibold tracking-widest uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline relative inline-block"
           >
-            <span className="z-10 relative transition duration-300 group font-fipps">
+                         <span className="z-10 relative transition duration-300 group font-fipps">
               <span className="relative">Dark</span>
-              <span className="mt-1 absolute top-0 right-0 w-1/2 h-full bg-red-500 transform -skew-x-12 group-hover:skew-x-0 transition-transform duration-300"></span>
-              <span className="relative text-black">Trail</span>
+              <span className="mt-1 absolute top-0 right-0 w-1/2 h-full bg-red-500 transform -skew-x-12 transition-transform duration-300 group-hover:skew-x-0"></span>
+              <span className="relative text-black">
+                <span className="group-hover:animate-pulse">T</span>rail
+              </span>
             </span>
           </Link>
           <button
