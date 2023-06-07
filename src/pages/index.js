@@ -7,6 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     setImageLoaded(true);
+    document.title = 'Página inicial';
   }, []);
 
   return (

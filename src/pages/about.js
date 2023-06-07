@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
-const about = () => {
+const About = () => {
+
+  useEffect(() => {
+    document.title = 'Acerca';
+  }, []);
+
   return (
     <div>about</div>
   )
 }
 
-export default about
+export default About;

@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useEffect,useState, lazy, Suspense } from "react";
 import {Warning} from "../components/Alerts/icon_dismiss";
 
 import { BiError } from "react-icons/bi";
@@ -11,6 +11,11 @@ const LazyAccordion = lazy(() => import("../components/accordion"));
 
 
 const Faq = () => {
+
+  useEffect(() => {
+    document.title = 'FAQ';
+  }, []);
+
   const categories = [
     {
       name: "Problemas/Bugs",
@@ -40,8 +45,8 @@ const Faq = () => {
       icon: CgGames,
       accordions: [
         {
-          question: "What is your favorite food?",
-          answer: "I love pizza and sushi.",
+          question: "Qual a razão de o jogo estar incompleto?",
+          answer: "O jogo ainda está numa fase muito inicial,ou seja grande maior parte das coisas não estão totalmente funcionais!",
         },
       ],
     },
@@ -50,8 +55,8 @@ const Faq = () => {
       icon: AiOutlineFileText,
       accordions: [
         {
-          question: "Where is your dream vacation destination?",
-          answer: "I would love to visit the Maldives.",
+          question: "Em qual âmbito é que este projeto foi desenvolvido?",
+          answer: "O jogo foi desenvolvido no âmbito da PAP(Prova de Aptidão Profissional).",
         },
       ],
     },

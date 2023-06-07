@@ -5,22 +5,22 @@ import { ImInstagram, ImTwitter, ImGithub, ImLinkedin } from 'react-icons/im';
 const navigation = [
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/playfulscapeco/',
     icon: ImInstagram
   },
   {
     name: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/PlayfulscapeDev',
     icon: ImTwitter
   },
   {
     name: 'GitHub',
-    href: '#',
+    href: 'https://github.com/n0t666',
     icon: ImGithub
   },
   {
     name: 'Linkedin',
-    href: '#',
+    href: 'https://www.linkedin.com/in/leandro-pereira-186596277/',
     icon: ImLinkedin
   },
 ];
