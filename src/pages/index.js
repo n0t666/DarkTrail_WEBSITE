@@ -48,7 +48,7 @@ const Home = () => {
               <img
                 src={screenshot}
                 loading="lazy"
-                alt="Photo by Fakurian Design"
+                alt="souvenir"
                 className="h-full w-full object-cover object-center"
                 onLoad={() => setImageLoaded(true)}
               />

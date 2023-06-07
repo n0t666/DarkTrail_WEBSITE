@@ -17,7 +17,8 @@
     "react-scripts": "5.0.1",
     "react-toggle-dark-mode": "^1.1.1",
     "react-tooltip": "^5.13.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yet-another-react-lightbox": "^3.10.1"
   },
   "scripts": {
     "start": "react-scripts start",
