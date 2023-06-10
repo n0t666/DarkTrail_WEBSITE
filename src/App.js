@@ -12,6 +12,8 @@ import Functionalities from "./pages/functionalities";
 import News from "./pages/news";
 import Faq from "./pages/faq";
 import NotFound from "./pages/errors/404";
+import FullDetailPage from "./components/News/ArticleDetails";
+
 function App() {
   return (
     <>
@@ -25,6 +27,7 @@ function App() {
         <Route path="/features" element={<Functionalities />} />
         <Route path="/news" element={<News />} />
         <Route path="/FAQ" element={<Faq />} />
+        <Route path="/articles/:articleId" element = {<FullDetailPage/>}/>
 
         {/* 👇️ only match this when no other routes match */}
         <Route path="*" element={<NotFound />} />
