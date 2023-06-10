@@ -75,6 +75,7 @@ const News = () => {
             publishedDate={article.publishedDate}
             author={article.author}
             content={article.content}
+            articleId={article.id}
           />
         ))}
         <div className="flex justify-center mt-8">
