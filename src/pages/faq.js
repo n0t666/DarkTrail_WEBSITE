@@ -115,7 +115,7 @@ const Faq = () => {
   });
 
   return (
-    <div className="wrapper mt-20 flex justify-center items-center dark:text-white">
+    <div className="wrapper mt-20 flex justify-center items-center dark:text-white ">
       <div>
         <h1 className="text-center text-5xl font-semibold mb-10">FAQ</h1>
         <div className="max-w-[1000px] w-full mt-10">

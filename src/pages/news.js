@@ -53,12 +53,9 @@ const News = () => {
   const displayedArticles = sortedArticles.slice(startIndex, endIndex);
 
   return (
-    <div className="container my-8 mx-auto px-4 md:px-8">
+    <div className="container my-8 mx-auto px-4 md:px-8 max-w-screen-xl">
       <div className="flex justify-between items-center mb-5">
         <div className="flex items-center w-full">
-          <h2 className="mx-auto text-3xl font-bold dark:text-white">
-            Artigos
-          </h2>
         </div>
         <HeadlessMenu
           onSortingOptionChange={handleSortingOptionChange}

@@ -8,7 +8,8 @@ export const ArticlesCardData = [
     category: "Travel",
     publishedDate: "2023-06-07",
     author: "John Doe",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    readingTime: "10",
   },
   {
     id: idCounter++,
@@ -17,7 +18,8 @@ export const ArticlesCardData = [
     category: "Category 2",
     publishedDate: "2023-06-08",
     author: "Jane Smith",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    readingTime: "10",
   },
   {
     id: idCounter++,
@@ -26,6 +28,7 @@ export const ArticlesCardData = [
     category: "Category 3",
     publishedDate: "2023-06-09",
     author: "Mark Johnson",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    readingTime: "10",
   },
 ];
