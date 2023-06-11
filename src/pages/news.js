@@ -73,6 +73,8 @@ const News = () => {
             author={article.author}
             content={article.content}
             articleId={article.id}
+            iconComponent={article.icon}
+            highlightColor = {article.color}
           />
         ))}
         <div className="flex justify-center mt-8">
