@@ -65,7 +65,7 @@ const FullDetailPage = () => {
   return (
     <>
       {/* Blog Article */}
-      <div className="max-w-screen-xl px-32 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-32 mx-auto selection:bg-purple-300 selection:text-purple-900">
+      <div className="max-w-screen-xl px-32 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-32 mx-auto selection:bg-yellow-300 selection:text-yellow-900 dark:selection:bg-yellow-900 dark:selection:text-yellow-300">
         <div className="max-w-screen-xl">
           {/* Avatar Media */}
           <div className="flex justify-between items-center mb-6">
@@ -156,7 +156,7 @@ const FullDetailPage = () => {
                     </CircleMenuItem>
 
                     <CircleMenuItem
-                      tooltip="Email"
+                      tooltip="LinkedIn"
                       tooltipPlacement={TooltipPlacement.Top}
                     >
                       <LinkedinShareButton

@@ -16,7 +16,7 @@ const Home = () => {
         <section className="mb-8 flex flex-col justify-between gap-6 sm:gap-10 md:mb-16 md:gap-16 lg:flex-row">
           {/* content - start */}
           <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12">
-            <p className="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">
+            <p className="mb-4 font-semibold text-blue-500 md:mb-6 md:text-lg xl:text-xl">
             Muito orgulho em apresentar
             </p>
             <h1 className="text-black-800 mb-8 text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl">
@@ -25,13 +25,13 @@ const Home = () => {
             <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start">
               <a
                 href="/about"
-                className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base dark:bg-indigo-700 dark:ring-indigo-500 dark:hover:bg-indigo-600 dark:focus-visible:ring dark:active:bg-indigo-700"
+                className="inline-block rounded-lg bg-blue-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-blue-300 transition duration-100 hover:bg-blue-600 focus-visible:ring active:bg-blue-700 md:text-base dark:bg-blue-700 dark:ring-blue-500 dark:hover:bg-blue-600 dark:focus-visible:ring dark:active:bg-blue-700"
               >
                 Ver detalhes
               </a>
               <a
                 href="/contact"
-                className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-500 dark:hover:bg-gray-600 dark:focus-visible:ring dark:active:text-gray-700"
+                className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-blue-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-500 dark:hover:bg-gray-600 dark:focus-visible:ring dark:active:text-gray-700"
               >
                 Entrar em contacto
               </a>

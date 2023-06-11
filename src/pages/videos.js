@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+
 export const Videos = () => {
   useEffect(() => {
     document.title = 'Vídeos';
