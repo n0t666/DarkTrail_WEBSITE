@@ -10,7 +10,7 @@ const profileCard = () => {
               <div className="flex justify-center w-full">
                 <div className="relative">
                   <img
-                    src="https://source.unsplash.com/jmURdhtm7Ng/120x120"
+                    src=""
                     className="dark:shadow-xl border-white dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
                   />
                 </div>
@@ -21,23 +21,9 @@ const profileCard = () => {
                 Ariel Cerda
               </h3>
               <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-4 h-4 text-gray-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                {/* /typography/_h3.antlers.html */}
                 <div className="text-sm font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl">
-                  Diseñador UI / Front-end
+                  Criador do projeto 
                 </div>
-                {/* End: /typography/_h3.antlers.html */}
               </div>
               <div className="w-full text-center">
                 <div className="flex justify-center pt-8 pb-0 lg:pt-4">
