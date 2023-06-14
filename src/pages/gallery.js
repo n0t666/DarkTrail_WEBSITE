@@ -47,17 +47,17 @@ export const Gallery = () => {
 
   return (
     <div className=" my-8 mx-auto px-4 md:px-8">
-      <h2 class="flex flex-row flex-nowrap items-center my-8">
+      <h2 className="flex flex-row flex-nowrap items-center my-8">
         <span
-          class="flex-grow block border-t border-black dark:border-white"
+          className="flex-grow block border-t border-black dark:border-white"
           aria-hidden="true"
           role="presentation"
         ></span>
-        <span class="flex-none block mx-4   px-4 py-2.5 text-xs leading-none font-medium uppercase bg-black text-white dark:bg-white dark:text-black">
+        <span className="flex-none block mx-4   px-4 py-2.5 text-xs leading-none font-medium uppercase bg-black text-white dark:bg-white dark:text-black">
           Galeria de imagens
         </span>
         <span
-          class="flex-grow block border-t border-black dark:border-white"
+          className="flex-grow block border-t border-black dark:border-white"
           aria-hidden="true"
           role="presentation"
         ></span>

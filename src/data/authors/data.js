@@ -1,5 +1,8 @@
+let idCounter = 1;
+
 export const AuthorData = [
     {
+        id: idCounter++, 
         name : 'Leandro Pereira',
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
         subtitle : "Criador do projeto",

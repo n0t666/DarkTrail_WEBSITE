@@ -1,4 +1,9 @@
+import { useParams } from "react-router-dom";
+
 const profileCard = () => {
+
+
+
   return (
     <>
       {/* component */}
