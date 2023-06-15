@@ -1,8 +1,18 @@
 import { useParams } from "react-router-dom";
+import { AuthorData } from "../../data/authors/data";
+import { NotFoundV2 } from "../../pages/errors/4044";
+const ProfileCard = () => {
+  const { authorName } = useParams();
 
-const profileCard = () => {
+  const errorMessage = `Desculpe, mas nós não conseguimos encontrar o perfil que pretende consultar.`;
 
+  const author = AuthorData.find(
+    (author) => author.id === authorName
+  );
 
+  if (!author) {
+    return <NotFoundV2 message={errorMessage} />;
+  }
 
   return (
     <>
@@ -15,19 +25,20 @@ const profileCard = () => {
               <div className="flex justify-center w-full">
                 <div className="relative">
                   <img
-                    src=""
+                    src= {author.imageUrl}
                     className="dark:shadow-xl border-white dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
+                    alt = "author"
                   />
                 </div>
               </div>
             </div>
             <div className="mt-2 mt-20 text-center">
               <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300">
-                Ariel Cerda
+                {author.name}
               </h3>
               <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
                 <div className="text-sm font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl">
-                  Criador do projeto 
+                {author.subtitle}
                 </div>
               </div>
               <div className="w-full text-center">
@@ -35,14 +46,12 @@ const profileCard = () => {
                   <div className="flex space-x-2">
                     <a
                       className="p-1 -m-1 text-gray-400 hover:text-blue-500 focus:outline-none focus-visible:ring-2 ring-primary"
-                      href="https://www.twitter.com/smilesharks"
+                      href= {author.links[0]}
                       rel="noopener"
                       aria-label="Ariel Cerda on Twitter"
-                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6 overflow-visible fill-current"
-                        alt=""
                         aria-hidden="true"
                         viewBox="0 0 24 24"
                       >
@@ -51,14 +60,12 @@ const profileCard = () => {
                     </a>
                     <a
                       className="p-1 -m-1 text-gray-400 hover:text-blue-500 focus:outline-none focus-visible:ring-2 ring-primary"
-                      href="https://www.github.com/Smilesharks"
+                      href={author.links[1]}
                       rel="noopener"
                       aria-label="Ariel Cerda on Github"
-                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6 overflow-visible fill-current"
-                        alt=""
                         aria-hidden="true"
                         viewBox="0 0 140 140"
                       >
@@ -67,10 +74,9 @@ const profileCard = () => {
                     </a>
                     <a
                       className="p-1 -m-1 text-gray-400 hover:text-blue-500 focus:outline-none focus-visible:ring-2 ring-primary"
-                      href="https://www.linkedin.com/in/arielcerdahernandez/"
+                      href={author.links[2]}
                       rel="noopener"
                       aria-label="Ariel Cerda on Linkedin"
-                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6 overflow-visible fill-current"
@@ -83,14 +89,12 @@ const profileCard = () => {
                     </a>
                     <a
                       className="p-1 -m-1 text-gray-400 hover:text-blue-500 focus:outline-none focus-visible:ring-2 ring-primary"
-                      href="https://www.instagram.com/smilesharks"
+                      href={author.links[3]}
                       rel="noopener"
                       aria-label="Ariel Cerda on Instagram"
-                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6 overflow-visible fill-current"
-                        alt=""
                         aria-hidden="true"
                         viewBox="0 0 140 140"
                         xmlns="http://www.w3.org/2000/svg"
@@ -104,10 +108,9 @@ const profileCard = () => {
                     </a>
                     <a
                       className="p-1 -m-1 text-gray-400 hover:text-blue-500 focus:outline-none focus-visible:ring-2 ring-primary"
-                      href="https://www.youtube.com/channel/UCWip2TrjNMXb0kg6LWbsNzw?sub_confirmation=1"
+                      href={author.links[4]}
                       rel="noopener"
                       aria-label="Ariel Cerda on Youtube"
-                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6 overflow-visible fill-current"
@@ -126,10 +129,7 @@ const profileCard = () => {
               <div className="flex flex-wrap justify-center">
                 <div className="w-full px-6">
                   <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin turpis orci, maximus sed purus a, cursus scelerisque
-                    purus. Morbi molestie, odio at sagittis rhoncus, felis massa
-                    iaculis mi, quis molestie erat ipsum vel risus.
+                  {author.description}
                   </p>
                 </div>
               </div>
@@ -150,4 +150,4 @@ const profileCard = () => {
   );
 };
 
-export default profileCard;
+export default ProfileCard;

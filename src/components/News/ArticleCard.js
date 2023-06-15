@@ -64,8 +64,7 @@ const ArticleCard = ({
           </div>
           <p className="mb-6 text-neutral-500 dark:text-neutral-300">
             <small>
-              Publicado em <u>{publishedDate}</u> Por
-              <a href="#!"> {author}</a>
+              Publicado em <u>{publishedDate}</u> Por {author}
             </small>
           </p>
           <p className="text-neutral-500 dark:text-neutral-300">{content}</p>

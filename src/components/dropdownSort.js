@@ -37,6 +37,7 @@ export default function HeadlessMenu({ onSortingOptionChange,sortOrder}) {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
+                // eslint-disable-next-line
                 <a
                   href="#"
                   onClick={() => handleOptionClick("Option 1")}
@@ -53,6 +54,7 @@ export default function HeadlessMenu({ onSortingOptionChange,sortOrder}) {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
+                // eslint-disable-next-line
                 <a
                   href="#"
                   onClick={() => handleOptionClick("Option 2")}

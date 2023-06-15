@@ -1,12 +1,13 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ArticlesCardData } from "../../data/news/ArticleCardData";
+import { AuthorData } from "../../data/authors/data";
+import { NotFoundV2 } from "../../pages/errors/4044";
 import {
   TelegramShareButton,
   TelegramIcon,
   RedditShareButton,
   RedditIcon,
-  EmailShareButton,
-  EmailIcon,
   FacebookShareButton,
   FacebookIcon,
   LinkedinShareButton,
@@ -18,40 +19,64 @@ import {
   TooltipPlacement,
 } from "react-circular-menu";
 
+const renderSection = (section, index) => {
+  if (section.type === "paragraph") {
+    return (
+      <p className="text-lg text-gray-800 dark:text-gray-200" key={index}>
+        {section.content}
+      </p>
+    );
+  }
+
+  if (section.type === "highlight") {
+    return (
+      <p className="text-2xl font-semibold dark:text-white" key={index}>
+        {section.content}
+      </p>
+    );
+  }
+
+  if (section.type === "list") {
+    return (
+      <ul
+        className="list-disc list-outside space-y-2 pl-5 text-lg text-gray-800 dark:text-gray-200"
+        key={index}
+      >
+        {section.items.map((item, itemIndex) => (
+          <li className="pl-2" key={itemIndex}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return null; // Handle other section types if needed
+};
+
 const FullDetailPage = () => {
   const { articleId } = useParams();
   const url = window.location.href;
+
+  const [showRestOfSections, setShowRestOfSections] = useState(false);
+
+  useEffect(() => {
+    setShowRestOfSections(true);
+  }, []);
+
+
+  const errorMessage = `Desculpe,mas nós não conseguimos encontrar o artigo que pretende
+  consultar. Poderá encontrar muitos outros na área das notícias.`;
 
   const article = ArticlesCardData.find(
     (article) => article.id === parseInt(articleId)
   );
 
   if (!article) {
-    return (
-      <section>
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-          <div class="mx-auto max-w-screen-sm text-center">
-            <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-blue-600 dark:text-blue-500">
-              404
-            </h1>
-            <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-              Algo não está certo.
-            </p>
-            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-              Desculpe,mas nós não conseguimos encontrar o artigo que pretende
-              consultar. Poderá encontrar muitos outros na área das notícias.{" "}
-            </p>
-            <a
-              href="/"
-              class="inline-flex text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-900 my-4"
-            >
-              Voltar para a página principal
-            </a>
-          </div>
-        </div>
-      </section>
-    );
+    return <NotFoundV2 message={errorMessage} />;
   }
+
+
 
   const tagElements = article.tags.map((tag, index) => (
     <div
@@ -61,6 +86,12 @@ const FullDetailPage = () => {
       {tag}
     </div>
   ));
+
+  function findAuthorByName(name) {
+    return AuthorData.find((author) => author.name === name);
+  }
+
+  const author = findAuthorByName(article.author);
 
   return (
     <>
@@ -73,8 +104,8 @@ const FullDetailPage = () => {
               <div className="flex-shrink-0">
                 <img
                   className="h-12 w-12 rounded-full"
-                  src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                  alt="Image Description"
+                  src={author.imageUrl}
+                  alt="author"
                 />
               </div>
               <div className="grow">
@@ -82,9 +113,11 @@ const FullDetailPage = () => {
                   <div>
                     <div className="inline-block">
                       <div className="sm:mb-1 block text-left">
-                        <span className="font-semibold text-gray-800 dark:text-gray-200">
-                          {article.author}
-                        </span>
+                        <a href={author.authorUrl}>
+                          <span className="font-semibold text-gray-800 dark:text-gray-200">
+                            {article.author}
+                          </span>
+                        </a>
                       </div>
                     </div>
                     <ul className="text-xs text-gray-500">
@@ -172,103 +205,34 @@ const FullDetailPage = () => {
                 </div>
               </div>
               <p className="text-lg text-gray-800 dark:text-gray-200">
-                At preline, our mission has always been focused on bringing
-                openness and transparency to the design process. We've always
-                believed that by providing a space where designers can share
-                ongoing work not only empowers them to make better products, it
-                also helps them grow.
+                {article.content}
               </p>
             </div>
-            <p className="text-lg text-gray-800 dark:text-gray-200">
-              We're proud to be a part of creating a more open culture and to
-              continue building a product that supports this vision.
-            </p>
-            <p className="text-lg text-gray-800 dark:text-gray-200">
-              As we've grown, we've seen how Preline has helped companies such
-              as Spotify, Microsoft, Airbnb, Facebook, and Intercom bring their
-              designers closer together to create amazing things. We've also
-              learned that when the culture of sharing is brought in earlier,
-              the better teams adapt and communicate with one another.
-            </p>
-            <p className="text-lg text-gray-800 dark:text-gray-200">
-              That's why we are excited to share that we now have a{" "}
-              <a
-                className="text-blue-600 decoration-2 hover:underline font-medium"
-                href="#"
-              >
-                free version of Preline
-              </a>
-              , which will allow individual designers, startups and other small
-              teams a chance to create a culture of openness early on.
-            </p>
+            {article.text.length > 0 && article.text[0].content}
+            {article.text.length > 0 && article.text[1].content}
             <blockquote className="text-center p-4 sm:px-7">
               <p className="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal dark:text-gray-200">
-                To say that switching to Preline has been life-changing is an
-                understatement. My business has tripled and I got my life back.
+                {article.quote}
               </p>
               <p className="mt-5 text-gray-800 dark:text-gray-200">
-                Nicole Grazioso
+                {author.name}
               </p>
             </blockquote>
             <figure>
               <img
                 className="w-full object-cover rounded-xl"
                 src={article.imageUrl}
-                alt="Image Description"
+                alt="Somehing here"
               />
               <figcaption className="mt-3 text-sm text-center text-gray-500">
                 {article.imageCaption}
               </figcaption>
             </figure>
-            <div className="space-y-3">
-              <h3 className="text-2xl font-semibold dark:text-white">
-                Bringing the culture of sharing to everyone
-              </h3>
-              <p className="text-lg text-gray-800 dark:text-gray-200">
-                We know the power of sharing is real, and we want to create an
-                opportunity for everyone to try Preline and explore how
-                transformative open communication can be. Now you can have a
-                team of one or two designers and unlimited spectators (think
-                PMs, management, marketing, etc.) share work and explore the
-                design process earlier.
-              </p>
-            </div>
-            <ul className="list-disc list-outside space-y-5 pl-5 text-lg text-gray-800 dark:text-gray-200">
-              <li className="pl-2">
-                Preline allows us to collaborate in real time and is a really
-                great way for leadership on the team to stay up-to-date with
-                what everybody is working on,"{" "}
-                <a
-                  className="text-blue-600 decoration-2 hover:underline font-medium"
-                  href="#"
-                >
-                  said
-                </a>{" "}
-                Stewart Scott-Curran, Intercom's Director of Brand Design.
-              </li>
-              <li className="pl-2">
-                Preline opened a new way of sharing. It's a persistent way for
-                everyone to see and absorb each other's work," said David Scott,
-                Creative Director at{" "}
-                <a
-                  className="text-blue-600 decoration-2 hover:underline font-medium"
-                  href="#"
-                >
-                  Eventbrite
-                </a>
-                .
-              </li>
-            </ul>
-            <p className="text-lg text-gray-800 dark:text-gray-200">
-              Small teams and individual designers need a space where they can
-              watch the design process unfold, both for themselves and for the
-              people they work with – no matter if it's a fellow designer,
-              product manager, developer or client. Preline allows you to invite
-              more people into the process, creating a central place for
-              conversation around design. As those teams grow, transparency and
-              collaboration becomes integrated in how they communicate and work
-              together.
-            </p>
+            {/* Render the rest of the sections */}
+            {showRestOfSections &&
+              article.text
+                .slice(2)
+                .map((section, index) => renderSection(section, index))}
             <div>{tagElements}</div>
           </div>
           {/* End Content */}
