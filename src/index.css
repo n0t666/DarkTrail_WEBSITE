@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+  }
+}
+
 /* Set the default body color */
 body {
   @apply bg-white dark:bg-gray-900; /* Replace with your desired default background color classes from Tailwind CSS */
@@ -43,4 +58,6 @@ body {
 {
 	background-color: #000000;
 }
+
+
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useRipple from "use-ripple-hook";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
