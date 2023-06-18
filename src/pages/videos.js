@@ -1,13 +1,11 @@
-import { useEffect } from 'react';
-
-
+import { useEffect } from "react";
+import VideoGallery from "../components/videoGallery";
 export const Videos = () => {
   useEffect(() => {
-    document.title = 'Vídeos';
+    document.title = "Vídeos";
   }, []);
-  return (
-    <div>videos</div>
-  )
-}
 
-export default Videos
+  return <VideoGallery />;
+};
+
+export default Videos;

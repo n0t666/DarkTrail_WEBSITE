@@ -38,7 +38,7 @@ const ScrollToTopButton = () => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <div className="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4 z-50 md:mb-0 mb-16">
         <button
           className={`bg-blue-500 rounded-full p-3 shadow-lg outline-none focus:outline-none text-white transition duration-300 ease-in-out hover:bg-blue-600 ${showButton ? 'dark:bg-gray-800' : 'dark:bg-gray-200'}`}
           onClick={handleScrollToTop}

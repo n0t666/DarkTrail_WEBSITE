@@ -4,21 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  @variants responsive {
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-  }
-}
-
 /* Set the default body color */
 body {
   @apply bg-white dark:bg-gray-900; /* Replace with your desired default background color classes from Tailwind CSS */
@@ -42,22 +27,43 @@ body {
 body {
   margin-bottom: 80px;
 }
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
 
-::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
+/* Scrollbar styles for light mode */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
 
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
 
+/* Scrollbar styles for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #2d2d2d;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

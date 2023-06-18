@@ -43,8 +43,8 @@ export default function Footer() {
   return (
     
     <footer className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-full md:w-1/2 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-600 shadow dark:text-gray-200 text-gray-700 rounded-t-lg py-4 px-6 p-4">
-      <div className={`container mx-auto ${screenWidth < 420 ? "flex justify-center" : "flex justify-between"} items-center`}>
-        {screenWidth >= 420 ? (
+      <div className={`container mx-auto ${screenWidth < 640 ? "flex justify-center" : "flex justify-between"} items-center`}>
+        {screenWidth >= 640 ? (
           <span className="text-sm flex-shrink-0 whitespace-nowrap">&copy; 2023 DarkTrail. All rights reserved.</span>
         ) : null}
         <div className="flex items-center gap-4 flex-shrink-0">
