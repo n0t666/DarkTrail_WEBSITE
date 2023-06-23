@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ArticlesCardData } from "../../data/news/ArticleCardData";
 import { AuthorData } from "../../data/authors/data";
@@ -22,7 +21,7 @@ import {
 const renderSection = (section, index) => {
   if (section.type === "paragraph") {
     return (
-      <p className="text-lg text-gray-800 dark:text-gray-200" key={index}>
+      <p className="text-lg text-gray-800 dark:text-gray-200 mt-4 mb-4" key={index}>
         {section.content}
       </p>
     );
@@ -30,7 +29,10 @@ const renderSection = (section, index) => {
 
   if (section.type === "highlight") {
     return (
-      <p className="text-2xl font-semibold dark:text-white" key={index}>
+      <p
+        className="text-3xl font-bold text-gray-800 dark:text-blue-400 mt-4 mb-4" 
+        key={index}
+      >
         {section.content}
       </p>
     );
@@ -39,7 +41,7 @@ const renderSection = (section, index) => {
   if (section.type === "list") {
     return (
       <ul
-        className="list-disc list-outside space-y-2 pl-5 text-lg text-gray-800 dark:text-gray-200"
+        className="list-disc list-outside space-y-2 pl-5 text-lg text-gray-800 dark:text-gray-200 mt-4 mb-4"
         key={index}
       >
         {section.items.map((item, itemIndex) => (
@@ -58,12 +60,6 @@ const FullDetailPage = () => {
   const { articleId } = useParams();
   const url = window.location.href;
 
-  const [showRestOfSections, setShowRestOfSections] = useState(false);
-
-  useEffect(() => {
-    setShowRestOfSections(true);
-  }, []);
-
 
   const errorMessage = `Desculpe,mas nós não conseguimos encontrar o artigo que pretende
   consultar. Poderá encontrar muitos outros na área das notícias.`;
@@ -75,8 +71,6 @@ const FullDetailPage = () => {
   if (!article) {
     return <NotFoundV2 message={errorMessage} />;
   }
-
-
 
   const tagElements = article.tags.map((tag, index) => (
     <div
@@ -135,12 +129,12 @@ const FullDetailPage = () => {
           </div>
           {/* End Avatar Media */}
           {/* Content */}
-          <div className="space-y-5 md:space-y-8">
+          <div className="space-y-3 md:space-y-4">
             <div className="space-y-3 items-center justify-between">
               <div className="flex items-center">
-                <h2 className="text-2xl font-bold md:text-3xl dark:text-white">
+                <p className="text-2xl font-bold md:text-3xl dark:text-white">
                   {article.title}
-                </h2>
+                </p>
                 <div className="flex items-center ml-auto">
                   <CircleMenu
                     startAngle={-90}
@@ -204,38 +198,38 @@ const FullDetailPage = () => {
                   </CircleMenu>
                 </div>
               </div>
-              <p className="text-lg text-gray-800 dark:text-gray-200">
+              <p className="text-xl font-bold text-gray-800 dark:text-gray-200">
                 {article.content}
               </p>
             </div>
-            {article.text.length > 0 && article.text[0].content}
-            {article.text.length > 0 && article.text[1].content}
-            <blockquote className="text-center p-4 sm:px-7">
-              <p className="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal dark:text-gray-200">
-                {article.quote}
-              </p>
-              <p className="mt-5 text-gray-800 dark:text-gray-200">
-                {author.name}
-              </p>
-            </blockquote>
-            <figure>
-              <img
-                className="w-full object-cover rounded-xl"
-                src={article.imageUrl}
-                alt="Somehing here"
-              />
-              <figcaption className="mt-3 text-sm text-center text-gray-500">
-                {article.imageCaption}
-              </figcaption>
-            </figure>
-            {/* Render the rest of the sections */}
-            {showRestOfSections &&
-              article.text
-                .slice(2)
-                .map((section, index) => renderSection(section, index))}
-            <div>{tagElements}</div>
+            <div>
+              {article.text.map((section, index) =>
+                renderSection(section, index)
+              )}
+              {article.quote && (
+                <blockquote className="text-center p-4 sm:px-7">
+                  <p className="text-xl font-medium text-gray-800 md:text-2xl md:leading-normal xl:text-2xl xl:leading-normal dark:text-gray-200">
+                    {article.quote}
+                  </p>
+                  <p className="mt-5 text-gray-800 dark:text-gray-200">
+                    {author.name}
+                  </p>
+                </blockquote>
+              )}
+              <figure>
+                <img
+                  className="w-full object-cover rounded-xl"
+                  src={article.imageUrl}
+                  alt="Somehing here"
+                />
+                <figcaption className="mt-3 text-sm text-center text-gray-500">
+                  {article.imageCaption}
+                </figcaption>
+              </figure>
+              <div>{tagElements}</div>
+            </div>
+            {/* End Content */}
           </div>
-          {/* End Content */}
         </div>
       </div>
       {/* End Blog Article */}

@@ -1,11 +1,10 @@
 import { AiOutlineWarning } from "react-icons/ai";
-
 let idCounter = 1;
 
 export const ArticlesCardData = [
   {
     id: idCounter++,
-    imageUrl: "https://wallpapercave.com/wp/wp5405231.jpg",
+    imageUrl: require("../../Images/articles/opera_Rdqs9UthpU.png"),
     imageCaption: "imagem bue fixe",
     title: "Página de notícias em construção",
     category: "Modificações website",
@@ -17,31 +16,25 @@ export const ArticlesCardData = [
     tags: ["Website", "React"],
     icon: <AiOutlineWarning />,
     color: "text-red-600 dark-text-500",
-    quote: "Uma frase extremamente complexa...",
+    quote: "",
     text: [
       {
         type: "paragraph",
-        content: "Paragraph 1 of the article content.",
+        content:
+          "Apesar de o website e o jogo em geral ainda estarem numa fase muito inicial, planeio adicionar muitas funcionalidades. No entanto, devido ao tempo limitado que tenho para trabalhar neles, a tarefa torna-se complicada.Recentemente, implementei uma nova aba de notícias no nosso website do projeto. Esta adição permitirá que os visitantes do website se mantenham informados sobre as últimas atualizações e acontecimentos relacionados ao projeto.",
       },
       {
         type: "paragraph",
-        content: "Paragraph 2 of the article content.",
-      },
-      {
-        type: "paragraph",
-        content: "Paragraph 3 of the article content.",
-      },
-      {
-        type: "paragraph",
-        content: "Paragraph 4 of the article content.",
+        content:
+          "É importante destacar que, como o projeto é desenvolvido por uma única pessoa, há limitações em termos de recursos e tempo disponível. Sendo um projeto escolar, é necessário focar nos elementos mais básicos para a entrega.No entanto, tenho grandes ambições para o futuro do projeto. Pretendo implementar diversas melhorias tanto no website quanto no jogo em si. Estas melhorias incluem recursos adicionais, aprimoramentos de jogabilidade e muito mais.",
       },
       {
         type: "highlight",
-        content: "This is a highlighted section of the article.",
+        content: "Melhorias que eu pretendo implementar no futuro:",
       },
       {
         type: "list",
-        items: ["List item 1", "List item 2", "List item 3"],
+        items: ["Sistema de Login", "Fóruns de discussão"],
       },
     ],
   },
