@@ -21,7 +21,7 @@ export const Card = ({ icon, title, description }) => {
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800 transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30">
+      <div className="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800 transition duration-300 ease-in-out hover:shadow-lg dark:hover:shadow-black/30 lg h-full">
         <Transition
           show={isLoading}
           enter="transition-opacity duration-500"

@@ -53,7 +53,7 @@ export const Gallery = () => {
           aria-hidden="true"
           role="presentation"
         ></span>
-        <span className="flex-none block mx-4   px-4 py-2.5 text-xs leading-none font-medium uppercase bg-black text-white dark:bg-white dark:text-black">
+        <span className="flex-none block mx-4   px-4 py-2.5 text-xs leading-none font-medium uppercase bg-black text-white dark:bg-white dark:text-black dark:font-bold">
           Galeria de imagens
         </span>
         <span
