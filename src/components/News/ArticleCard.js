@@ -56,18 +56,20 @@ const ArticleCard = ({
         </div>
 
         <div className="mb-6 w-full shrink-0 grow-0 basis-auto px-3 md:mb-0 md:w-9/12 xl:w-7/12 dark:text-white">
-          <h5 className="mb-3 text-lg font-bold">{title}</h5>
-          <div className={`mb-3 flex items-center justify-center text-sm font-medium ${highlightColor} md:justify-start`}>
-            {iconComponent &&
-              React.cloneElement(iconComponent, { className: "mr-2 h-5 w-5" })}
-            {category}
+          <div className="p-4"> {/* Add padding here */}
+            <h5 className="mb-3 text-lg font-bold">{title}</h5>
+            <div className={`mb-3 flex items-center justify-center text-sm font-medium ${highlightColor} md:justify-start`}>
+              {iconComponent &&
+                React.cloneElement(iconComponent, { className: "mr-2 h-5 w-5" })}
+              {category}
+            </div>
+            <p className="mb-6 text-neutral-500 dark:text-neutral-300">
+              <small>
+                Publicado em <u>{publishedDate}</u> Por {author}
+              </small>
+            </p>
+            <p className="text-neutral-500 dark:text-neutral-300">{content}</p>
           </div>
-          <p className="mb-6 text-neutral-500 dark:text-neutral-300">
-            <small>
-              Publicado em <u>{publishedDate}</u> Por {author}
-            </small>
-          </p>
-          <p className="text-neutral-500 dark:text-neutral-300">{content}</p>
         </div>
       </div>
     </div>

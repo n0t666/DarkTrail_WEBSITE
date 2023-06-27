@@ -5,7 +5,7 @@ export const AuthorData = [
         authorUrl: "/author/Leandro_Pereira",
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
         subtitle : "Criador do projeto",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin turpis orci, maximus sed purus a, cursus scelerisque purus. Morbi molestie, odio at sagittis rhoncus, felis massa iaculis mi, quis molestie erat ipsum vel risus.",
+        description: "Leandro Pereira é um  estudante de programação com uma paixão incessante por aprender e explorar novas áreas dentro desse campo em constante evolução. Com uma sólida base de conhecimento e uma determinação incansável, ele busca constantemente aprimorar suas habilidades e expandir seu horizonte profissional.",
         links : 
         [
          "https:/https://twitter.com/PlayfulscapeDev",

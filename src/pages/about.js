@@ -1,78 +1,101 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaBullseye,
+  FaCode,
+  FaCog,
+  FaGamepad,
+} from "react-icons/fa";
+import { SiTarget } from "react-icons/si";
+import { Transition } from "@headlessui/react";
 
 const About = () => {
+  const [currentCard, setCurrentCard] = useState(0);
+  const cards = [
+    {
+      icon: <SiTarget />,
+      title: "Objetivo do jogo",
+      description:
+        "O objetivo principal do jogo é derrotar inimigos ao longo das fases, enfrentar chefes desafiadores e fortalecer seu personagem ao obter itens melhores. À medida que você avança, seu objetivo é se tornar cada vez mais poderoso e superar os desafios mais difíceis que o jogo apresenta.",
+    },
+    {
+      icon: <FaCode />,
+      title: "Descrição técnica do jogo",
+      description:
+        "O jogo foi desenvolvido utilizando o Godot 3.5, uma engine de jogo popular e poderosa. A programação foi realizada principalmente em GDScript, uma linguagem de script simples e eficiente para o desenvolvimento de jogos no Godot. O desenvolvimento do jogo foi baseado em tutoriais que forneceram uma base sólida para a implementação das mecânicas e sistemas necessários.",
+    },
+    {
+      icon: <FaCog />,
+      title: "Mecânicas de jogo",
+      description:
+        "O jogo apresenta diversas mecânicas interessantes. O combate é controlado pelo movimento do mouse, onde o jogador pode direcionar os ataques e habilidades do personagem na direção do cursor. Além disso, o jogo possui um sistema de inventário adaptado, permitindo ao jogador coletar e gerenciar itens encontrados ao longo do jogo. Existem também diferentes fontes de loot, como itens encontrados no chão ou em baús espalhados pelo cenário. O jogo também possui um ciclo de dia/noite baseado no horário do sistema. Além disso, diversas condições climáticas aleatórias podem ocorrer.",
+    },
+    {
+      icon: <FaGamepad />,
+      title: "Modos de jogo",
+      description:
+        "Atualmente, o jogo oferece apenas o modo singleplayer, onde os jogadores podem aproveitar a experiência de combate e progressão por conta própria. No entanto, existem planos para adicionar outros modos de jogo no futuro, como multiplayer cooperativo ou modos de desafio adicionais.",
+    },
+  ];
 
   useEffect(() => {
-    document.title = 'Acerca';
+    document.title = "Acerca";
   }, []);
 
+  const handleNextCard = () => {
+    setCurrentCard((prevCard) =>
+      prevCard === cards.length - 1 ? 0 : prevCard + 1
+    );
+  };
+
+  const handlePrevCard = () => {
+    setCurrentCard((prevCard) =>
+      prevCard === 0 ? cards.length - 1 : prevCard - 1
+    );
+  };
+
   return (
-    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
+    <div className="mx-auto max-w-screen-xl container px-6 py-16 dark:bg-gray-900 dark:text-white">
+      <div className="group relative block h-64 sm:h-80 lg:h-96">
+        <span className="absolute inset-0 border-2 border-dashed border-black dark:border-gray-700"></span>
+        <div className="relative flex h-full transform items-end border-2 border-black dark:border-gray-700 bg-white dark:bg-gray-800 transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+          <div className="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
+            {cards[currentCard].icon}
+            <h2 className="mt-4 text-xl font-medium sm:text-2xl dark:font-bold text-primary dark:text-primary-500">
+              {cards[currentCard].title}
+            </h2>
+          </div>
 
-    Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-    
-    In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-    
-    Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-    
-    Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
+          <div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
+            <h3 className="mt-4 text-xl font-medium sm:text-2xl text-primary dark:text-primary-500">
+              {cards[currentCard].title}
+            </h3>
 
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
+            <p className="mt-2 text-sm sm:text-base max-h-40 overflow-y-auto">
+              {cards[currentCard].description}
+            </p>
 
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
+            <p className="mt-8 font-bold"></p>
+          </div>
+        </div>
+      </div>
 
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
+      <div className="flex justify-between mt-4">
+        <FaArrowLeft
+          className="text-gray-600 dark:text-white cursor-pointer"
+          size={24}
+          onClick={handlePrevCard}
+        />
 
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices augue. Nulla quis euismod quam. Integer commodo diam ac molestie sodales. Morbi pharetra semper ex in faucibus. Nunc at velit tempor, iaculis lorem a, condimentum odio. Curabitur euismod porttitor ullamcorper. Pellentesque nec rhoncus risus. Duis fringilla nulla nec lectus volutpat, vitae pulvinar nibh sollicitudin. Vivamus tincidunt enim a egestas ullamcorper. Sed rhoncus vehicula volutpat. Aenean sodales bibendum mi. Integer ultricies urna lectus, eget vehicula mi pellentesque vitae. Aliquam nec nisi ac velit suscipit pharetra sit amet sodales risus.
-
-Curabitur et nisi ac nisi posuere consectetur eget quis risus. Nam tristique, arcu a ultrices gravida, nisi nunc maximus massa, sit amet maximus lacus odio cursus lectus. Mauris rhoncus sit amet diam vel scelerisque. Fusce ut magna mattis turpis egestas laoreet. Nunc a porta massa. Cras semper massa a enim fringilla interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elit felis, iaculis id scelerisque sit amet, dignissim hendrerit ex. Donec eleifend ullamcorper gravida.
-
-In eu dolor vitae dui pellentesque feugiat sagittis ac ante. Curabitur nec ex consectetur, tincidunt urna faucibus, interdum dui. Donec aliquam sit amet mi non eleifend. Praesent id feugiat est. Integer commodo vitae ipsum non ultricies. Aliquam finibus massa vel mattis maximus. Maecenas dapibus turpis suscipit odio dapibus, porta euismod est fermentum. Pellentesque quis feugiat tellus, sit amet ornare velit.
-
-Aliquam commodo velit quis neque tempus, semper porttitor lectus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed augue vehicula, aliquam diam id, porta ex. Mauris hendrerit lectus eu tortor dapibus, ac eleifend purus aliquet. Maecenas neque ligula, rhoncus vitae lacus vel, egestas placerat libero. Duis semper, neque sed bibendum rhoncus, tortor ex suscipit nisl, a gravida libero lorem sit amet est. Pellentesque blandit nibh blandit nunc tempor porta.
-
-Nunc bibendum vestibulum finibus. Morbi bibendum, lectus eget vulputate tristique, nunc risus mollis justo, ac pulvinar elit diam et nibh. Maecenas at odio gravida neque faucibus ornare. Pellentesque lorem diam, ornare eu est sed, maximus elementum quam. Pellentesque et eros ligula. Nunc ultricies mauris eget nulla pellentesque accumsan. Donec fermentum vitae arcu eget facilisis. Morbi volutpat congue suscipit.</div>
-  )
-}
+        <FaArrowRight
+          className="text-gray-600 dark:text-white cursor-pointer"
+          size={24}
+          onClick={handleNextCard}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default About;

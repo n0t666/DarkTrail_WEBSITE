@@ -13,7 +13,7 @@ const ProfileCard = () => {
   }
 
   return (
-    <div className="flex items-center justify-center my-8 mx-auto px-4 md:px-8 max-w-screen-xl">
+    <div className="flex items-center justify-center mx-auto px-4 md:px-8 max-w-screen-xl">
       <div className="relative w-full group max-w-md mt-32 min-w-0 mx-auto mb-6 break-words bg-white border shadow-2xl dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-xl">
         <div className="pb-6">
           <div className="flex flex-wrap justify-center">

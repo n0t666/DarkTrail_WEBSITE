@@ -3,6 +3,7 @@ import ArticleCard from "../components/News/ArticleCard";
 import { ArticlesCardData } from "../data/news/ArticleCardData";
 import ReactPaginate from "react-paginate";
 import HeadlessMenu from "../components/dropdownSort";
+
 const News = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const articlesPerPage = 3;
