@@ -8,9 +8,9 @@ const VideoGallery = () => {
     {
       id: 1,
       title: "Video 1",
-      url: "https://www.youtube-nocookie.com/embed/t0Q2otsqC4I",
+      url: "https://youtu.be/QCsEAhXfz8g",
       description:
-        "Some video description or additional information.Some video description or additional information.Some video description or additional information.Some video description or additional information.",
+        "Um pequeno teste da movimentação do personagens,assim bem como o combate utilizando a espada de ferro.",
     },
     {
       id: 2,
