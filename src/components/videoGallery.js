@@ -7,31 +7,10 @@ const VideoGallery = () => {
   const videos = [
     {
       id: 1,
-      title: "Video 1",
+      title: "Vídeo 1",
       url: "https://www.youtube-nocookie.com/embed/QCsEAhXfz8g",
       description:
         "Um pequeno teste da movimentação do personagens,assim bem como o combate utilizando a espada de ferro.",
-    },
-    {
-      id: 2,
-      title: "Video 2",
-      url: "https://www.youtube-nocookie.com/embed/t0Q2otsqC4I",
-      description:
-        "Some video description or additional information.Some video description or additional information.Some video description or additional information.Some video description or additional information.",
-    },
-    {
-      id: 3,
-      title: "Video 4",
-      url: "https://www.youtube-nocookie.com/embed/t0Q2otsqC4I",
-      description:
-        "Some video description or additional information.Some video description or additional information.Some video description or additional information.Some video description or additional information.",
-    },
-    {
-      id: 4,
-      title: "Video 4",
-      url: "https://www.youtube-nocookie.com/embed/t0Q2otsqC4I",
-      description:
-        "Some video description or additional information.Some video description or additional information.Some video description or additional information.Some video description or additional information.",
     },
   ];
 
